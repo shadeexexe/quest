@@ -1,0 +1,19 @@
+# Запасной вариант хостинга: Render.com
+# Основной рекомендуемый путь — Vercel + Neon, см. DEPLOY.md
+services:
+  - type: web
+    name: harry-potter-quest
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_USERNAME
+        value: ExperementariumAdmin
+      - key: ADMIN_PASSWORD_HASH_B64
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
